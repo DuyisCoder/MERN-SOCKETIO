@@ -7,6 +7,7 @@ const connectDB = require('./config/db');
 const color = require('colors');
 const initUserRoute = require('./routes/userRoute');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
+const chatRoute = require('./routes/chatRoute');
 app.use(cors());
 connectDB();
 const PORT = process.env.PORT || 8888
@@ -26,7 +27,7 @@ app.get('/api/chats/:id', (req, res) => {
 // app.use(notFound);
 // app.use(errorHandler);
 initUserRoute(app);
-
+chatRoute(app);
 app.listen(8080,
     console.log("Server is running is " + PORT)
 );

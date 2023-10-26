@@ -69,7 +69,20 @@ const loginUser = async (req, res) => {
         res.status(400).json({ message: "Email hoặc mật khẩu sai!" })
     }
 }
+const getAllUser = async (req, res) => {
+    const keyword = req.query.search
+        ? {
+            $or: [
+                { name: { $regex: req.query.search, $options: "i" } },
+                { email: { $regex: req.query.search, $options: "i" } }
+            ]
+        }
+        : {};
+
+    const users = await User.find(keyword);
+    res.send(users);
+};
 module.exports = {
     registerUser,
-    loginUser
+    loginUser, getAllUser
 }
