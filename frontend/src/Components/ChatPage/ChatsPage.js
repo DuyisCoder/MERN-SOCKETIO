@@ -8,7 +8,7 @@ export default function ChatsPage() {
     }
     useEffect(() => {
         fetchChat();
-
+        console.log(user);
     }, [])
 
     return (
