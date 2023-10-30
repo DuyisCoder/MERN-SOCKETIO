@@ -28,7 +28,8 @@ export default function SideDrawer() {
 
     const logoutHandler = () => {
         localStorage.removeItem("userInfo");
-        navigate('/')
+        navigate('/');
+        console.log("test");
     };
 
     const handleSearch = async () => {
@@ -61,7 +62,7 @@ export default function SideDrawer() {
                     handleFunction={() => accessChat(user._id)}
                 />
             ))
-            
+
         } catch (error) {
             toast({
                 title: "Error Occured!",
