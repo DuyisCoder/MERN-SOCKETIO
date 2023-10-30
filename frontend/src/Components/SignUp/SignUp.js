@@ -1,4 +1,4 @@
-import { useToast, FormControl, FormLabel, Input, InputGroup, VStack, Button, InputRightElement } from '@chakra-ui/react'
+import { useToast, FormControl, FormLabel, Input, InputGroup, VStack, Button, InputRightElement, background } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router";
@@ -12,7 +12,7 @@ export default function SignUp() {
     const [loading, setLoading] = useState('');
     const [picLoading, setPicLoading] = useState(false);
     const toast = useToast();
-    const history = useNavigate();
+    const navigate = useNavigate();
     const handleShowPass = () => setShow(!show);
     const postDetail = (pics) => {
         setLoading(true);
@@ -109,7 +109,8 @@ export default function SignUp() {
             });
             localStorage.setItem("userInfo", JSON.stringify(response.data));
             setPicLoading(false);
-            history.push("/chats");
+            navigate('/chats');
+
         } catch (error) {
             if (error.response && error.response.data) {
                 toast({
@@ -173,8 +174,8 @@ export default function SignUp() {
                     onChange={(e) => postDetail(e.target.files[0])}
                 />
             </FormControl>
-            <Button isLoading={loading} bgColor={"#bde3f8"} width={"100%"} marginTop={"15px"} onClick={handleSubmit}>Submit</Button>
+            <Button isLoading={loading} bgColor={"white"} width={"100%"} marginTop={"15px"} onClick={handleSubmit}>Submit</Button>
 
-        </VStack>
+        </VStack >
     )
 }

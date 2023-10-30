@@ -101,8 +101,8 @@ export default function Login() {
                 </InputGroup>
             </FormControl>
 
-            <Button isLoading={loading} bgColor={"#bde3f8"} width={"100%"} marginTop={"15px"} onClick={handleSubmit}>Submit</Button>
-            <Button
+            <Button isLoading={loading} color={"white"} bgColor={"black"} width={"100%"} marginTop={"15px"} onClick={handleSubmit}>Submit</Button>
+            {/* <Button
                 variant={'solid'}
                 colorScheme='red'
                 width={'100%'}
@@ -111,7 +111,7 @@ export default function Login() {
                     setPassword("123456")
                 }}
 
-            >Get Guest User Credentials</Button>
+            >Get Guest User Credentials</Button> */}
         </VStack >
     )
 }
